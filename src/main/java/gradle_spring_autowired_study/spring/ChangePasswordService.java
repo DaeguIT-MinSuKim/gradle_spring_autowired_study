@@ -1,11 +1,10 @@
 package gradle_spring_autowired_study.spring;
 
-public class ChangePasswordService {
-    private MemberDao memberDao;
+import org.springframework.beans.factory.annotation.Autowired;
 
-    public void setMemberDao(MemberDao memberDao) {
-        this.memberDao = memberDao;
-    }
+public class ChangePasswordService {
+    @Autowired
+    private MemberDao memberDao;
 
     public void changePassword(String email, String oldPwd, String newPwd) {
         Member member = memberDao.selectByEmail(email);
